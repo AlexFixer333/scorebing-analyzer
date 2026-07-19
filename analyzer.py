@@ -1,3 +1,15 @@
+def analyze_trends(matches):
+    """Анализирует данные и находит топ-5 матчей в каждой категории."""
+    if not matches:
+        return {"error": "Нет данных для анализа"}
+
+    df = pd.DataFrame(matches)
+    
+    # Добавляем защиту от пустых коэффициентов
+    df['odds_1'] = df['odds_1'].fillna(3.0)
+    df['odds_2'] = df['odds_2'].fillna(3.0)
+    df['odds_x'] = df['odds_x'].fillna(3.5)
+
 import pandas as pd
 from datetime import datetime
 
