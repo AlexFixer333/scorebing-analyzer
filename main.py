@@ -1,3 +1,10 @@
+def main():
+    print("Запуск Scorebing Analytical Tool...")
+    
+    # Создаем папку для данных
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    print(f"Папка {OUTPUT_DIR} создана/проверена")
+
 import os
 import json
 from datetime import datetime
