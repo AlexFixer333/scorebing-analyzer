@@ -1,0 +1,15 @@
+stages:
+  - analyze
+
+daily_analysis_job:
+  stage: analyze
+  image: python:3.10
+  script:
+    - pip install -r requirements.txt
+    - python main.py
+  artifacts:
+    paths:
+      - data/*.json
+    expire_in: 30 days
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule" # Настройте расписание в GitLab (например, каждый день в 08:00)
