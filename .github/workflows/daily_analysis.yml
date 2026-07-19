@@ -28,6 +28,8 @@
          - name: Upload results as artifact
            uses: actions/upload-artifact@v4
            with:
-             name: analytical-report
-             path: data/*.json
-             retention-days: 7
+              name: analytical-report
+              path: |
+                data/*.json
+                data/*.txt
+              retention-days: 7
